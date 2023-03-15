@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+}
+
+li{
+    list-style: none;
+}
+
+.title{
+    font-size: 48px;
+    font-weight: bold;
+    margin: 3px 0px;
+}
+
+.subtitle-m{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.subtitle-s{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content{
+    font-size: 18px;
+}
