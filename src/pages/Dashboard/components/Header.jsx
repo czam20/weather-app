@@ -1,31 +1,23 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext } from "react";
+import { WeatherContext } from "../../../context/WeatherContext";
+//components
 import { ForecastWeek } from "./ForecastWeek";
 import { WeatherDetail } from "./WeatherDetail";
+//styles
 import "../../../styles/header.css";
 import "../../../styles/styles.css";
-
-const forecastWeek = [
-  {
-    day: 'Tues',
-    temp: '29°C'
-  },
-  {
-    day: 'Tues',
-    temp: '29°C'
-  },
-  {
-    day: 'Tues',
-    temp: '29°C'
-  },
-  {
-    day: 'Tues',
-    temp: '29°C'
-  }
-]
+//icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+//utils
+import {
+  dayFormatter,
+  dateTimezoneFormatter,
+} from "../../../utils/formatterDate";
 
 export const Header = () => {
+  const { current, daily } = useContext(WeatherContext);
+
   return (
     <div className="header">
       <div className="header__container">
@@ -33,35 +25,54 @@ export const Header = () => {
           <div className="weather-side__gradient"></div>
           <div className="weather-side__info">
             <div>
-              <h3 className="subtitle-m">Tuesday</h3>
-              <span className="content">15 jan 2019</span>
-              <span className="content city">
-                <FontAwesomeIcon icon={faLocationDot} size="sm" /> Paris, FR
+              <h3 className="subtitle-m">
+                {dayFormatter.format(current?.timestamp)}
+              </h3>
+              <span className="content">
+                {dateTimezoneFormatter.format(current?.timestamp)}
               </span>
             </div>
             <div>
               <span className="content">
                 <FontAwesomeIcon icon={faSun} size="3x" />
               </span>
-              <h2 className="title">29°C</h2>
-              <h3 className="subtitle-m">Sunny</h3>
+              <h2 className="title">{`${current?.currentTemp}°C`}</h2>
+              {/* <h3 className="subtitle-m">Sunny</h3> */}
             </div>
           </div>
         </div>
         <div className="container__side info-side">
           <div className="info-side__details">
             <div className="weather-details-container">
-              <WeatherDetail title="High" description="32°C" />
-              <WeatherDetail title="FL High" description="26°C" />
-              <WeatherDetail title="Wind" description="0km/h" />
+              <WeatherDetail
+                title="High"
+                description={`${current?.highTemp}°C`}
+              />
+              <WeatherDetail
+                title="FL High"
+                description={`${current?.highFeelsLike}°C`}
+              />
+              <WeatherDetail
+                title="Wind"
+                description={`${current?.windSpeed}km/h`}
+              />
             </div>
             <div className="weather-details-container">
-              <WeatherDetail title="Fl Flow" description="12°C" />
-              <WeatherDetail title="Low" description="19°C" />
-              <WeatherDetail title="Precipitation" description="0.08in" />
+              <WeatherDetail
+                title="Fl Low"
+                description={`${current?.lowFeelsLike}°C`}
+              />
+              <WeatherDetail
+                title="Low"
+                description={`${current?.lowTemp}°C`}
+              />
+              <WeatherDetail
+                title="Precipitation"
+                description={`${current?.precipitation}mm`}
+              />
             </div>
           </div>
-          <ForecastWeek data={forecastWeek} />
+          <ForecastWeek data={daily} />
           {/* <div>
             <button className="location-btn">
               <span>
