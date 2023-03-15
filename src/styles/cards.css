@@ -1,7 +1,9 @@
 .weather-detail{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 12px;
 }
 
 .weather-detail.col{
@@ -36,11 +38,10 @@
     font-weight: bold;
 }
 
-.forecast-details{
+.forecast-hourly{
     background-color: #2a313a;
     color: white;
     width: 100%;
-    height: 15vh;
     padding: 20px 40px;
     display: flex;
     align-items: center;
@@ -49,4 +50,10 @@
     border-bottom: 1px solid #21272f;
 }
 
-
+.forecast-details{
+    width: 100%;
+    min-height: 15vh;
+    max-height: max-content;
+    display: flex;
+    flex-direction: column;
+}
