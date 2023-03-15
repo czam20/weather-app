@@ -17,7 +17,7 @@ export const ForecastHourlyCard = ({
   precipitation,
 }) => {
   return (
-    <div className="forecast-details">
+    <div className="forecast-hourly">
       <WeatherDetail title={day} description={hour} column />
       <div>
         <span className="content">
@@ -27,7 +27,7 @@ export const ForecastHourlyCard = ({
       <WeatherDetail title="Temp" description={`${temperature}°C`} column />
       <WeatherDetail title="FL Temp" description={`${feelsLike}°C`} column />
       <WeatherDetail title="Wind" description={`${windSpeed}km/h`} column />
-      <WeatherDetail title="Precip" description={`${precipitation}°C`} column />
+      <WeatherDetail title="Precip" description={`${precipitation}mm`} column />
     </div>
   );
 };

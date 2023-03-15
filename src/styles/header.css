@@ -13,17 +13,19 @@
 
 .container__side{
     min-height: 40vh;
-    max-height: 60vh;
+    max-height: 80vh;
     display: flex;
     padding: 5px 40px;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .container__side.weather-side{
     background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80"); 
     background-repeat: no-repeat;
     background-size: cover;
+    
     flex: 0.3;
     position: relative;
 }
@@ -112,25 +114,22 @@
 }
 @media (max-width: 978px) {
     .container__side{
-        height: 48vh;
-    }
-}
-
-@media (max-width: 888px) {
-    .container__side.weather-side,
-    .container__side.info-side{
-        flex: 1;
-    }
-}
-
-@media (max-width: 840px) {
-    .container__side{
         height: 58vh;
     }
 }
 
-@media (max-width: 551px) {
+@media (max-width: 628px) {
     .container__side{
-        height: 45vh;
+        height: 70vh;
+    }
+}
+
+@media (max-width: 604px) {
+    .container__side.weather-side,
+    .container__side.info-side{
+        flex: 1;
+    }
+    .header__container{
+        flex-direction: column;
     }
 }

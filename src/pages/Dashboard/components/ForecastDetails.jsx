@@ -12,7 +12,7 @@ export const ForecastDetails = () => {
   const { hourly } = useContext(WeatherContext);
 
   return (
-    <ul>
+    <ul className="forecast-details">
       {hourly?.map(( data, index ) => {
         return (
           <ForecastHourlyCard
