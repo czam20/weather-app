@@ -1,5 +1,9 @@
 import axios from "axios";
-import {parseCurrentWeather, parseDailyWeather, parseHourlyWeather} from "../utils/parseWeather"
+import {
+  parseCurrentWeather,
+  parseDailyWeather,
+  parseHourlyWeather,
+} from "../utils/parseWeather";
 export const getWeather = (latitude, longitude, timezone) => {
   return axios
     .get(
@@ -18,5 +22,8 @@ export const getWeather = (latitude, longitude, timezone) => {
         daily: parseDailyWeather(data),
         hourly: parseHourlyWeather(data),
       };
+    })
+    .catch((e) => {
+      throw new Error(e.message);
     });
 };

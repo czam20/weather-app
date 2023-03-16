@@ -8,7 +8,7 @@ import "../../../styles/header.css";
 import "../../../styles/styles.css";
 //icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { ICON_MAP } from "../../../assets/icons/iconMap";
 //utils
 import {
   dayFormatter,
@@ -26,17 +26,17 @@ export const Header = () => {
           <div className="weather-side__info">
             <div>
               <h3 className="subtitle-m">
-                {dayFormatter.format(current?.timestamp)}
+                {dayFormatter.format(current?.timestamp) || ""}
               </h3>
               <span className="content">
-                {dateTimezoneFormatter.format(current?.timestamp)}
+                {dateTimezoneFormatter.format(current?.timestamp) || ""}
               </span>
             </div>
             <div>
               <span className="content">
-                <FontAwesomeIcon icon={faSun} size="3x" />
+                <FontAwesomeIcon icon={ICON_MAP.get(current.iconCode)} size="3x" />
               </span>
-              <h2 className="title">{`${current?.currentTemp}°C`}</h2>
+              <h2 className="title">{`${current?.currentTemp || ""}°C`}</h2>
               {/* <h3 className="subtitle-m">Sunny</h3> */}
             </div>
           </div>

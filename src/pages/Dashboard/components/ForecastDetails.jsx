@@ -22,6 +22,7 @@ export const ForecastDetails = () => {
             feelsLike={data?.feelsLike}
             windSpeed={data?.windSpeed}
             precipitation={data?.precipitation}
+            iconCode={data?.iconCode}
             key={data?.timestamp}
           />
         );

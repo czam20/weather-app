@@ -11,11 +11,11 @@ export const ForecastWeek = ({ data = [] }) => {
   return (
     <ul className="weather-forecast-container">
       {data.map((day, index) => (
-        <li>
+        <li key={`${Math.random}-${day?.timestamp}`}>
           <ForecastDailyCard
             day={dayFormatter.format(day?.timestamp)}
             temp={day?.maxTemp}
-            key={index}
+            iconCode={day?.iconCode}
           />
         </li>
       ))}

@@ -6,7 +6,7 @@ import "../../../styles/styles.css";
 import "../../../styles/cards.css";
 //icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { ICON_MAP } from "../../../assets/icons/iconMap";
 
 export const ForecastHourlyCard = ({
   day,
@@ -15,13 +15,14 @@ export const ForecastHourlyCard = ({
   feelsLike,
   windSpeed,
   precipitation,
+  iconCode
 }) => {
   return (
     <div className="forecast-hourly">
       <WeatherDetail title={day} description={hour} column />
-      <div>
-        <span className="content">
-          <FontAwesomeIcon icon={faSun} size="2x" />
+      <div className="weather-detail">
+        <span>
+          <FontAwesomeIcon icon={ICON_MAP.get(iconCode)} size="2x" />
         </span>
       </div>
       <WeatherDetail title="Temp" description={`${temperature}°C`} column />
